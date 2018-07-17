@@ -151,7 +151,7 @@ class DeviceManager:
     self.debug = debug
     self.errorHandler = errorHandler
     self.sleep = sleep
-    self.debug("Hardware initialiseren...")
+    self.debug("Initializing hardware...")
     for name in glob.glob('/dev/ttyUSB*'):
       try:
         self.ports.append(serial.Serial(name, 115200, timeout=0.2))
@@ -171,7 +171,8 @@ class DeviceManager:
         self.sleep(0.01)
         timeout-=1
       if (d.getId()<1):
-        self.debug("Port '"+port.name+"' is not a device.")
+        self.debug("Port '"+port.name+"' is not a device. Closing connection.")
+        port.close()
       else:
         self.debug("Port '"+port.name+"' is device #"+str(d.getId())+" of type "+d.getType()+" ("+str(d.getNumMotors())+" motors)")
         self.devices.append(d)
