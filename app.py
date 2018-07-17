@@ -101,7 +101,7 @@ class App:
 			self._running = False
 		while( self._running ):
 			self.on_loop()
-			self.on_cleanup()
+		self.on_cleanup()
 
 	def showPos(self):
 		for i in range(0,len(self._drawers)):
