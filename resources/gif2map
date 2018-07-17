@@ -1,1 +1,0 @@
-montage ~/eye.gif -tile x1 -geometry +0+0 -alpha On -background "rgba(0, 0, 0, 0.0)" -quality 100 background_out.png
